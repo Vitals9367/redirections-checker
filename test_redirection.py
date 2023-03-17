@@ -13,6 +13,6 @@ for path in PATHS:
     helfi_request = requests.get(HELFI_HOST+path)
     proxy_request = requests.get(PROXY_HOST+path)
     
-    if helfi_request != proxy_request:
+    if helfi_request.url != proxy_request.url:
         text = f"""{'-'*40} \nRedirection mismatch \nSOURCE = {path}\nHelfi redirected to = {helfi_request.url}\nproxy redirected to = {proxy_request.url}\n{'-'*40}\n"""
         print(text)
